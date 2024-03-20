@@ -1,2 +1,6 @@
 # Ignore all files and subdirectories in this directory
 *
+# But don't ignore these files:
+!Cap32.cmd
+!Cap32.ps1
+!Cap32.sh

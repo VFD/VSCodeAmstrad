@@ -1,2 +1,6 @@
 # Ignore all files and subdirectories in this directory
 *
+# But don't ignore these files:
+!CapForever.cmd
+!CapForever.ps1
+!CapForever.sh

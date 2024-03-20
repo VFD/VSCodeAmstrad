@@ -1,0 +1,40 @@
+{
+    // Version of the tasks schema
+    "version": "2.0.0",
+    "tasks": [
+        {
+            // Label of the task
+            "label": "A",
+            // Type of the task
+            "type": "shell",
+            // Command to be executed
+            "command": "echo",
+            // Arguments to be passed to the command
+            "args": ["Executing Task A"],
+            // Tasks that this task depends on
+            "dependsOn": ["C"],
+            // This task is part of the build group and is the default task to run for the build command
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "B",
+            "type": "shell",
+            "command": "echo",
+            "args": ["Executing Task B"],
+            "dependsOn": ["C"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "C",
+            "type": "shell",
+            "command": "echo",
+            "args": ["Executing Task C"]
+        }
+    ]
+}

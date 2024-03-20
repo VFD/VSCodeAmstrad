@@ -1,0 +1,1 @@
+Write-Output "c'est un PS1"

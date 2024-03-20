@@ -6,16 +6,6 @@
         {
             // Windows Process for DSK
             "label": "ManageDsk",
-            "command": "ManageDsk",
-            "args": [
-                "${fileDirname}",
-                "${fileBasenameNoExtension}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // Windows Process for DSK
-            "label": "ManageDsk2",
             "command": "${env:CPC_ManageDsk_Folder}${/}ManageDsk.exe",
             "args": [
                 "-C",
@@ -57,7 +47,8 @@
             "command": "cap32.cmd",
             "args": [
                 "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "${fileBasename}"
+                "-a",
+                "run\"${fileBasename}"
             ],
             "problemMatcher": []
         },
@@ -67,7 +58,8 @@
             "command": "${env:CPC_Caprice32_Folder}${/}cap32",
             "args": [
                 "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "${fileBasename}"
+                "-a",
+                "run\"${fileBasename}"
             ],
             "problemMatcher": []
         },
@@ -75,7 +67,7 @@
             // Build and test on Windows (default)
             // change "isDefault" to true if your on a Windows machine
             "label": "BuildWindows",
-            "dependsOn": ["ManageDsk"],
+            "dependsOn": ["Cap32"],
             "problemMatcher": [],
             "group": {
                 "kind": "build",
