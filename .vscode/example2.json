@@ -5,7 +5,7 @@
             "label": "Script SH",
             "type": "shell",
             "command": "./monscript.sh",
-            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}"],
+            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}", "${fileExtname}"],
             "problemMatcher": [],
             "enabled": "${env:ENABLE_SH}"
         },
@@ -13,7 +13,7 @@
             "label": "Script PS1",
             "type": "shell",
             "command": "./monscript.ps1",
-            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}"],
+            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}", "${fileExtname}"],
             "problemMatcher": [],
             "enabled": "${env:ENABLE_PS1}"
         },
@@ -21,7 +21,7 @@
             "label": "Script CMD",
             "type": "shell",
             "command": "./monscript.cmd",
-            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}"],
+            "args": ["${file}", "${fileBasenameNoExtension}", "${relativeFileDirname}", "${fileExtname}"],
             "problemMatcher": [],
             "enabled": "${env:ENABLE_CMD}"
         }
