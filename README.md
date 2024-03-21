@@ -28,47 +28,49 @@ ___
 
 Some extention for **VSCode** exists.
 
-**AMSTRAD-Basic**\
+https://github.com/benchmarko/CPCBasic/
+
+
+**AMSTRAD-Basic**
+
 dfreniche\
 Thanks to him to have develop this.
 
-**CPCReady Basic Language (AMSTRAD)**\
+**CPCReady Basic Language (AMSTRAD)**
+
+Fork from the above.
 This extension is a port of the one created by dfreniche.
 
-**Amstrad Basic Helper**\
+**Amstrad Basic Helper**
+
 Same but add the possibility to run your program.\
-But some **CALL** does not work.\
 And also renum your code.
+But some **CALL** does not work.\
+
 
 **sdk-cpc-amstrad-basic-snippet\
 sdk-cpc-amstrad-basic-language**\
 From: https://sdkcpc.github.io/cpc/
 
+Not working for me :/
 
 **dotENV Official**
 
 Official dotEnv to use .env file at root of the project.
 
-Not working :/
+Not working for me :/
 
 
+### Pull the project from Git Hub
 
-### Build an Amstrad project folder.
-
-``` cmd
-mkdir MyCPC
-```
-
-Or use your Github project on your machine.
-
-### Pull
-
-Pull the project.
 Or simply download the project and unzip it inside your project folder.
 
-### Download the emulators
+### Install the emulators
 
-Link to Add
+Download all the ressources.\
+More is better than less.
+
+Link to Add !
 
 CAPRICE32
 
@@ -76,97 +78,118 @@ CAPRICE FOREVER
 
 AMSPIRIT
 
-Install the emulators at the root of the Amstrad Projets ("MyCPC").
-
-Change ENV variables to set Emulator Rep
-
-
-
-
-
+Install the emulators in [VSCodeAmstrad].\
+Take care of folders, don't erase them.
 
 ### Install the DSK manager
 
-#### Windows
+**ManageDSK**
 
-**ManageDSK**\
-URL :
+For Windows. URL:
 
-#### *Nix
+Copy/paste in [VSCodeAmstrad]/ManageDSK
 
-**iDSK**\
-URL:
+Studiing to incoreporate it in the project.
 
-### The final tree
+**iDSK**
 
-Your Amstard Basic Projects look like this :
+Fo *nix. URL:
 
-```
-.[MyCPC]
-└── 📂 .vscode
-│   └── 📄 tasks.json
-│
-└── 📂 AMSpiriT
-└── 📂 Cap32
-└── 📂 CapriceForever
-└── 📂 ManageDSK
-└── 📂 iDSK
-│
-└── 📄 amspirit.cmd
-└── 📄 amspirit.ps1
-└── 📄 amspirit.sh
-└── 📄 cap32.cmd
-└── 📄 cap32.ps1
-└── 📄 cap32.sh
-└── 📄 capforever.cmd
-└── 📄 capforever.ps1
-└── 📄 capforever.sh
-└── 📂 Hello World
-    └── 📄 [Basic files]
-
-```
-
-You can change the **.cmd** (Windows Command) **.ps1** (PowerShell) **.sh** (Bash) scripts for them to go where are your's emulators.
-
-For example:
-
-```cmd
-SET AMSpirit="Amspirit v0.967_beta_x64.exe"
-SET AMSpiritFolder=AMSpirit
-```
+Copy/paste in [VSCodeAmstrad]/iDSK
 
 ___
 
-## How To
+### Tree project
+
+Your Amstard Basic Projects must look like this:
+
+```
+.[VSCodeAmstrad]
+└── 📂 .vscode
+│   └── 📄 extention.json
+│   └── 📄 launch.json
+│   └── 📄 settings.json
+│   └── 📄 tasks.json
+│
+└── 📂 AMSpiriT
+│   └── 📄 AmMSpiriT files          (not include)
+└── 📂 Cap32
+│   └── 📄 Caprice files            (not include)
+└── 📂 CapriceForever
+│   └── 📄 Caprice Forever files    (not include)
+└── 📂 ManageDSK
+│   └── 📄 ManageDSK files          (not include)
+└── 📂 iDSK
+│   └── 📄 iDSK files               (not include)
+│
+└── 📂 cmd
+│   └── 📄 build.cmd                (start by the task)
+│   └── 📄 amspirit.cmd             (launch amspirit)
+│   └── 📄 cap32.cmd                (launch Caprice)
+│   └── 📄 capforever.cmd           (launch Caprice forever)
+│   └── 📄 set.cmd                  (set the env vars)
+│   └── 📄 unset.cmd                (clear env vars)
+│
+└── 📂 sh                           (macOS z shell)
+│   └── 📄 build.sh                 (start by the task)
+│   └── 📄 amspirit.sh              (launch amspirit)
+│   └── 📄 capforever.sh            (launch Caprice forever)
+│   └── 📄 cap32.sh                 (launch Caprice)
+│   └── 📄 set.sh                   (set the env vars)
+│   └── 📄 unset.sh                 (clear env vars)
+│
+└── 📂 ps1
+│   └── 📄 build.ps1                (start by the task)
+│   └── 📄 capforever.ps1           (launch caprice forever)
+│   └── 📄 cap32.ps1                (launch Caprice)
+│   └── 📄 amspirit.ps1             (launch amspirit)
+│   └── 📄 set.ps1                  (set the env vars)
+│   └── 📄 unset.ps1                (clear env vars)
+│
+└── 📂 Hello
+    └── 📂 dsk
+    │   └── 📄 hello.dsk            (dsk of the project)
+    └── 📄 hello.bas
+
+```
+
+You can use this for any project you want.\
+Sinclair, Amiga, Atari, etc.\
+Just fork and adapt.
+May be I do this because I have some aold computer
+
+___
+
+## How To build
 
 ### Start a new Basic Project
 
-Create your new directory project inside "MyCPC" (or the name of your CPC Basic Project).\
+Create your new directory project inside [VSCodeAmstrad] (or the name of your CPC Basic Projects).\
+You can simply copy/paste the hello project.
 
 
 ### Check to have CRLF
 
 Bottom Right of VSCode, check you have "CRLF" and not "LF".
+"CRLF" is the default on Windows.
+"LF" is the default on *nix.
 
-### Execute your code
+### Build the project
+
+Type [SHIFT]+[CTRL]+[b].
+Select the good build.
+
+- Build Windows Command             (Build with command batch files)
+- Build Windows PowerShell          (Build with PowerShell scripts)
+- Build macOS sh                    (Build with zsh shell, macOS)
+
+
 
 type [F1].\
 Select "Amstrad Basic Run".
 
-### Renum your code
-
 type [F1].\
 Select "Amstrad Basic Renum".
-
-### Start the tasks
-
-Type [SHIFT]+[CTRL]+[b].
-
-ou [SHIFT]+[CTRL]+[b]\
-puis "run task"
-___
-
-https://github.com/benchmarko/CPCBasic/
 
 ___
 

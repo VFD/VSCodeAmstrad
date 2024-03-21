@@ -4,5 +4,15 @@
 			"path": "."
 		}
 	],
+    "search.exclude": {
+        "**/AMSpirit": true,
+        "**/BlankDSK": true,
+		"**/Cap32": true,
+		"**/CapForever": true,
+		"**/iDSK": true,
+		"**/cmd": true,
+		"**/sh": true,
+		"**/ps1": true
+    },
 	"settings": {}
 }
