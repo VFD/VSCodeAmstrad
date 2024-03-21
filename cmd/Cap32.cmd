@@ -8,7 +8,7 @@ SETLOCAL
 :: Define what we need
 :: ------------------------------------------------------------
 SET CAP32=cap32.exe
-SET CAP32Folder=cap32-win64
+SET CAP32Folder=cap32
 
 :: ------------------------------------------------------------
 :: Check if CAP32 is available
@@ -31,13 +31,19 @@ GOTO END
 :: ------------------------------------------------------------
 :CHECKARG
 IF [%1]==[] (
+	ECHO.
     ECHO Argument 1 is not present, aborting.
     GOTO END
 ) 
 IF [%2]==[] (
+	ECHO.
     ECHO Argument 2 is not present, aborting.
     GOTO END
 )
+
+ECHO.
+ECHO Start Caprice32 with file %1 and starting point %2.
+
 GOTO LAUNCH
 
 :: ------------------------------------------------------------

@@ -4,78 +4,27 @@
     "version": "2.0.0",
     "tasks": [
         {
-            // Windows Process for DSK
-            "label": "ManageDsk",
-            "command": "ManageDsk",
-            "args": [
-                "${fileDirname}",
-                "${fileBasenameNoExtension}"
-            ],
-            "problemMatcher": []
+            // Build and test on Windows (cmd)
+            // change "isDefault" to false if you want to disable it
+            "label": "Build Windows Command",
+            "type": "shell",
+            "command": ".${/}cmd${/}build.cmd",
+            "args": ["${cwd}", "${workspaceFolderBasename}", "${fileDirnameBasename}", "${fileBasename}", "${fileBasenameNoExtension}", "${fileExtname}"],
+            "dependsOn": [],
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
-            // Windows Process for DSK
-            "label": "ManageDsk2",
-            "command": "${env:CPC_ManageDsk_Folder}${/}ManageDsk.exe",
-            "args": [
-                "-C",
-                "-S${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "-L${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "-A*.bas",
-                "-S${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // *nix process for DSK (1)
-            "label": "Make Nix DSK",
-            "type": "process",
-            "command": "idsk",
-            "args": [
-                "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "-n"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // *nix process for DSK (2)
-            "label": "iDISK insert files",
-            "command": "${env:CPC_iDisk_Folder}${/}idsk",
-            "args": [
-                "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "-t",
-                "0",
-                "-i",
-                "${fileBasename}",
-                "-f"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // Start CMD
-            "label": "Cap32",
-            "command": "cap32.cmd",
-            "args": [
-                "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "${fileBasename}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // Start Caprice 32
-            "label": "Caprice32",
-            "command": "${env:CPC_Caprice32_Folder}${/}cap32",
-            "args": [
-                "${fileDirname}${/}dsk${/}${fileBasenameNoExtension}.dsk",
-                "${fileBasename}"
-            ],
-            "problemMatcher": []
-        },
-        {
-            // Build and test on Windows (default)
-            // change "isDefault" to true if your on a Windows machine
-            "label": "BuildWindows",
-            "dependsOn": ["ManageDsk"],
+            // Build and test on Windows (ps1)
+            // change "isDefault" to false if you want to disable it
+            "label": "Build Windows PowerShell",
+            "type": "shell",
+            "command": ".${/}ps1${/}build.ps1",
+            "args": ["${cwd}", "${FileDirname}", "${File}", "${fileBasenameNoExtension}", "${fileExtname}"],
+            "dependsOn": [],
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -84,17 +33,16 @@
         },
         {
             // Build and test on *nix
-            // change "isDefault" to true if your on a *nix machine
-            "label": "BuildNIX",
-            "dependsOn": [
-                "Make Nix DSK",
-                "iDISK insert files",
-                "Start Caprice32"
-            ],
+            // change "isDefault" to false if you want to disable it
+            "label": "Build macOS sh",
+            "type": "shell",
+            "command": ".${/}sh${/}build.sh",
+            "args": ["${cwd}", "${FileDirname}", "${File}", "${fileBasenameNoExtension}", "${fileExtname}"],
+            "dependsOn": [],
             "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": false
+                "isDefault": true
             }
         }
     ]

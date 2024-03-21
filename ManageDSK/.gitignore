@@ -1,5 +1,4 @@
 # Ignore all files and subdirectories in this directory
 *
 # But don't ignore these files:
-!ManageDSK.cmd
-!ManageDSK.ps1
+# use !
