@@ -100,13 +100,12 @@ Remarque :
 - Les options des commandes (noms de fichiers) doivent être accolés à la
 commande (pas d'espaces)
 - Les commandes peuvent être entrés en majuscules ou en minuscules.
-- pour le moment, 5 commandes sont connues :
-    -L : Lecture DSK
-    -C : Création DSK
-    -A : Ajout fichiers sur DSK
-    -S : Sauvegarde DSK
-    -I : Ajout d'un fichier en spécifiant éventuellement les paramètres de l'en-tête AMSDOS
-
+- pour le moment, 5 commandes sont connues :\
+    -L : Lecture DSK\
+    -C : Création DSK\
+    -A : Ajout fichiers sur DSK\
+    -S : Sauvegarde DSK\
+    -I : Ajout d'un fichier en spécifiant éventuellement les paramètres de l'en-tête AMSDOS\
 
 ### Lecture/écriture directe sur disquette 3,5 pouces
 
@@ -114,21 +113,16 @@ Depuis la version 0.15, ManageDsk est capable de lire/�crire directement sur
 des disquettes 3,5 pouces. Ceci permet par exemple de :
 - lire une disquette 3,5 pouces et créer le DSK correspondant,
 - lire un fichier dsk et l'écrire sur disquette 3,5 pouces pour pouvoir 
-    utiliser la disquette 3,5 pouces sur CPC
+    utiliser la disquette 3,5 pouces sur CPC.
+
 Ceci est possible grace à l'utilisation du driver fdrawcmd.sys de Simon Owen.
 Il est donc nécessaire d'installer ce driver pour pouvoir utiliser ces 
 nouvelles fonctions de lecture/écriture directe.
 fdrawcmd.sys n'est pas livré dans l'archive, mais est disponnible gratuitement
-à l'adresse suivante : http://simonowen.com/fdrawcmd
+à l'adresse suivante : https://simonowen.com/fdrawcmd \
+Ou : https://github.com/simonowen/fdrawcmd
 
-
-Pour toute informations complémentaires, rapport de buggs ou autre, envoyez
-moi un message à l'adresse suivante :
-
-ludovic.deplanque(at)libertysurf(point)fr
-
-ou allez visiter ma page web : http://demoniak-contrib.forumactif.com
-
+Pour plus d'information lire les fichier TXT.
 
 ## English
 
@@ -212,22 +206,26 @@ separated by spaces.
 A typical example of creating a dsk, adding binary files, then
 save this dsk as the toto.dsk:
 
+```cmd
 ManageDsk -C -A*.BIN -Stoto.dsk
+```
 
 Another example: Reading a dsk, adding .BAS and .BIN files and saving :
 
+```cmd
 ManageDsk -LOld.dsk -A*.BAS -A*.BIN -SNew.dsk
+```
 
 Note:
 - Each command (argument) starts with the character '-' (minus character)
 - The command options (file name) must be joined to the
 control (no spaces)
 - Orders can be entered in uppercase or lowercase.
-- For the moment, five commands are known:
-    -L: Read DSK
-    -C: Create DSK
-    -A: Adding files to DSK
-    -S: Save DSK
+- For the moment, five commands are known:\
+    -L: Read DSK\
+    -C: Create DSK\
+    -A: Adding files to DSK\
+    -S: Save DSK\
     -I: Adding a file with optionally specifying the parameters of the AMSDOS header
 
 ### Read/write directly on 3.5-inch disk
@@ -236,23 +234,19 @@ Since version 0.15, ManageDsk can read/write directly to 3.5-inch floppy disks.
 This allows for example:
 - Read a 3.5-inch disk and create the corresponding DSK,
 - Dsk read a file and write it to 3.5-inch disk in order to use the 3.5-inch
-disk of CPC
+disk of CPC.
+
 This is possible by using the driver fdrawcmd.sys Simon Owen.
 It is therefore necessary to install this driver to use these
 new features read/write direct.
 fdrawcmd.sys is not delivered in the archive, but is free disponnible
-at the following address: http://simonowen.com/fdrawcmd
-
+at the following address: http://simonowen.com/fdrawcmd \
+Or: https://github.com/simonowen/fdrawcmd
 
 Thanks to Ramlaid for his permission to use the code
 DamsConverter, and Targhan, Longshot and Kukulcan for their many buggs-report,
 Simon Owen for his fdrawcmd.sys at Lex Sparrow for his translation into Spanish,
 and to all users!
 
-
-For additional information, report or other buggs send
-me a message at the following address:
-
-ludovic.deplanque (at) libertysurf (dot) fr
-
-or go visit my web page: http://demoniak-contrib.forumactif.com
+Read txt file for more informations.
+___

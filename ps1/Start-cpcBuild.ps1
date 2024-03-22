@@ -28,25 +28,60 @@
 # 6 parameters needed
 # ------------------------------------------------------------
 param(
-    $param1,
-    $param2,
-    $param3,
-    $param4,
-    $param5,
-    $param6
+    [Parameter(Mandatory=$true)]
+    $CurrentFullProjectDirectory,
+    [Parameter(Mandatory=$true)]
+    $CurrentProjectDirectoryName,
+    [Parameter(Mandatory=$true)]
+    $CurentFolderFile,
+    [Parameter(Mandatory=$true)]
+    $CurentFile,
+    [Parameter(Mandatory=$true)]
+    $CurentFileNoExtention,
+    [Parameter(Mandatory=$true)]
+    $CurentFileExtention
 )
 
-# Initialize exit code to 0 (success)
-$exitCode = 0
 
+# ------------------------------------------------------------
+# Set what we need, dot sourced
+# ------------------------------------------------------------
+. ./ps1/Set-cpcVars.ps1
+
+Write-Host
 
 # ------------------------------------------------------------
 # Function END
 # ------------------------------------------------------------
-function END {
+function Exit-cpcBuild {
     # Exit with the specified exit code
-    exit $exitCode
+    Write-Host
+    Write-Host "Exit with: $env:ERRORCODE"
+    exit $env:ERRORCODE
 }
+
+Write-Host $MyInvocation.MyCommand.Name
+
+
+$Cp32Path="$env:CAP32Folder/$env:CAP32"
+
+Write-Host " The file for Cap32 $Cp32Path"
+
+
+# ------------------------------------------------------------
+# Test if the DSK is present, if not create it
+# ------------------------------------------------------------
+if(![System.IO.File]::Exists("./$CurentFolderFile/dsk/$CurentFolderFile.dsk")){
+    Write-Host
+    Write-Host "        The file ./$CurentFolderFile/dsk/$CurentFolderFile.dsk not found" -ForegroundColor red
+    Write-Host
+    . ./ps1/New-cpcDSK.ps1 $CurentFolderFile $CurentFolderFile
+}
+
+
+
+Exit-cpcBuild
+
 
 # ------------------------------------------------------------
 # Check if any parameters are missing
@@ -56,9 +91,9 @@ if (-not $param1 -or -not $param2 -or -not $param3 -or -not $param4 -or -not $pa
     Write-Host "Not all 6 parameters were provided." -ForegroundColor Red
     Write-Host "Please provide all 6 parameters."
     # Set exit code to 1 (failure)
-    $exitCode = 1
+    $env:ERRORCODE=1
     # Call the END function
-    END
+    Exit-cpcBuild
 } else {
     # If the script gets here, then all 6 parameters were provided
     Write-Host
@@ -80,5 +115,5 @@ if (-not $param1 -or -not $param2 -or -not $param3 -or -not $param4 -or -not $pa
 
 
 
-END
+Exit-cpcBuild
 # -----[EOF]--------------------------------------------------

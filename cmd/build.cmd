@@ -35,7 +35,7 @@ IF %argCount% NEQ 6 (
 ECHO.
 ECHO Current full project directory: %1
 ECHO Current project directory Name: %2
-ECHO Curent folder file:             %3 
+ECHO Curent folder file:             %3
 ECHO Curent file:                    %4
 ECHO Curent file with no extention:  %5
 ECHO Curent file extention:          %6
