@@ -22,8 +22,8 @@
             // change "isDefault" to false if you want to disable it
             "label": "Build Windows PowerShell",
             "type": "shell",
-            "command": ".${/}ps1${/}build.ps1",
-            "args": ["${cwd}", "${FileDirname}", "${File}", "${fileBasenameNoExtension}", "${fileExtname}"],
+            "command": ".${/}ps1${/}Start-build.ps1",
+            "args": ["${cwd}", "${workspaceFolderBasename}", "${fileDirnameBasename}", "${fileBasename}", "${fileBasenameNoExtension}", "${fileExtname}"],
             "dependsOn": [],
             "problemMatcher": [],
             "group": {
