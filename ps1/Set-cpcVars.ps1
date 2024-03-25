@@ -1,38 +1,30 @@
 <#
     .SYNOPSIS
-        Create all vars needed.
+        Create all vars needed for the build of the AMSTRAD project.
 
     .DESCRIPTION
         This script create Env vars needed for building the Amstrad project.
         You need to change them if you not use the directories inside the project.
         This vars no longer exist at the end of the session.
-
-    .PARAMETER  <Parameter-Name>
-        None.
-
-    .INPUTS
-        None.
-
-    .OUTPUTS
-        None.
+        At the end of the process, all gone.
 
     .EXAMPLE
-        Call the script:
-        .\Set-Vars
+        Call the script, dot sourced to keep vars.
+        . .\Set-Vars
 
-    .LINK
-        None.
-    
-    .NOTE
-        Author: VFD
 #>
+
+
+# ------------------------------------------------------------
+# Show information
+# ------------------------------------------------------------
+Write-Host
+Write-Host "Starting: " $MyInvocation.MyCommand.Name -ForegroundColor green
+
 
 # ------------------------------------------------------------
 # Define what we need
 # ------------------------------------------------------------
-
-Write-Host
-Write-Host "Start define ENV Vars"
 
 # ERROR Code
 $env:ERRORCODE = 0
@@ -57,5 +49,5 @@ $env:ManageDSKFolder = "ManageDSK"
 # END
 # ------------------------------------------------------------
 Write-Host
-Write-Host "ENV Vars defined"
+Write-Host "Ending: " $MyInvocation.MyCommand.Name -ForegroundColor green
 # -----[EOF]--------------------------------------------------
