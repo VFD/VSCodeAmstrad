@@ -1,6 +1,8 @@
 {
-    // Amstrad Basic helper recommanded
+    // Amstrad Basic helper
+    // cpptools for lauch.json
     "recommendations": [
-        "cebe74.amstrad-basic-helper-vscode"
+        "cebe74.amstrad-basic-helper-vscode",
+        "ms-vscode.cpptools-extension-pack"
     ]
 }

@@ -3,15 +3,16 @@
     "configurations": [
         {
             "name": "Debug on Caprice32 Windows (ps1)",
-            "type": "node",
+            "type": "cppdbg",
             "request": "launch",
+            "externalConsole": true,
             "program": "${workspaceFolder}/Cap32/Cap32.exe",
             "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],
             "preLaunchTask": "Build Windows PowerShell"
         },
         {
             "name": "Launch on MacOS",
-            "type": "node",
+            "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/cap32/",
             "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],

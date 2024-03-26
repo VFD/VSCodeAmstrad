@@ -1,0 +1,13 @@
+{
+  "label": "Run Node",
+  "type": "process",
+  "windows": {
+    "command": "C:\\Program Files\\nodejs\\node.exe"
+  },
+  "linux": {
+    "command": "/usr/bin/node"
+  },
+  "osx": {
+    "command": "/usr/bin/node"
+  }
+}
