@@ -1,4 +1,5 @@
 {
+    // read: https://stackoverflow.com/questions/58352944/how-to-run-program-in-a-pop-out-console-window-using-vs-code/70988694#70988694
     "version": "0.2.0",
     "configurations": [
         {
