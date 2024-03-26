@@ -43,10 +43,10 @@ stateDiagram-v2
             Set --> DSK
             DSK --> if_dsk
             if_dsk --> isASM: dsk file found
-            if_dsk --> New: No dsk file found\n(dot sourced)
+            if_dsk --> New: No dsk file found
             New --> isASM
             isASM --> if_asm
-            if_asm --> Compil: need to build BIN\n(dot sourced)
+            if_asm --> Compil: need to build BIN
             if_asm --> forADD: no compilation
             Compil --> forADD
             forADD --> Add

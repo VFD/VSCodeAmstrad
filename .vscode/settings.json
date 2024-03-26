@@ -1,3 +1,5 @@
 {
-    //
+    // Disables the code map (true if you want it)
+    "editor.minimap.enabled": false
 }
+    

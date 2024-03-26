@@ -1,3 +1,6 @@
 {
-    //
+    // Amstrad Basic helper recommanded
+    "recommendations": [
+        "cebe74.amstrad-basic-helper-vscode"
+    ]
 }

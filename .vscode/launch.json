@@ -1,3 +1,21 @@
 {
-    // Launch
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug on Caprice32 Windows (ps1)",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/Cap32/Cap32.exe",
+            "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],
+            "preLaunchTask": "Build Windows PowerShell"
+        },
+        {
+            "name": "Launch on MacOS",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceFolder}/cap32/",
+            "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],
+            "preLaunchTask": "<nom_de_votre_tâche_macos>"
+        }
+    ]
 }
