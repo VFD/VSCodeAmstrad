@@ -1,4 +1,4 @@
-# PowerShell for AMSTRAD Project
+# Command for AMSTRAD Project
 
 ## Description
 
@@ -19,11 +19,12 @@ Using Mermaid: https://mermaid.js.org/syntax/stateDiagram.html
 %%{init: {'theme': 'forest'} }%%
 stateDiagram-v2
 
-    Build: Build Windows PowerShell (tasks.json)
-    Start: Start-cpcBuild.ps1
-    Set: Set-cpcVars.ps1
-    New: New-cpcDSK.ps1
-    Add: Add-cpcDSK.ps1
+    Build: Build Windows Command (tasks.json)
+    Start: build.cmd
+    Set: set.cmd
+    Unset: unset.cmd
+    New: buildDSK.cmd
+    Add: AddFile2DSK.cmd
     SetVars: Set all $env needed
     Compil: ASM to BIN (to do)
     DSK: is DSK present
@@ -49,7 +50,9 @@ stateDiagram-v2
             if_asm --> forADD: no compilation
             Compil --> forADD
             forADD --> Add
-            Add --> End
+            Add --> PrepareEnd
+            PrepareEnd --> Unset
+            Unset --> End
             End --> [*]
         }
         
@@ -77,6 +80,12 @@ stateDiagram-v2
     state Compil {
         [*] --> Buildasm
         Buildasm --> [*]
+    }
+
+    state Unset {
+        [*] --> UnsetAllVars
+        UnsetAllVars --> [*]
+
     }
 
 }
