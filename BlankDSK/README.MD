@@ -1,3 +1,22 @@
 # Blank disks for AMSTRAD CPC
 
-TO DO.
+## AMSDOS
+
+Amsdos_Blank_Disk.dsk
+
+Standard blank disque Amstrad CPC.
+
+## CP/M
+
+
+
+
+## to do
+
+Table:
+
+
+
+
+
+

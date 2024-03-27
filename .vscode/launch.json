@@ -1,23 +1,23 @@
 {
     // read: https://stackoverflow.com/questions/58352944/how-to-run-program-in-a-pop-out-console-window-using-vs-code/70988694#70988694
+    // Work in progress
     "version": "0.2.0",
     "configurations": [
+        // {
+        //     "name": "Debug on Caprice32 Windows (ps1)",
+        //     "type": "cppvsdbg",
+        //     "request": "launch",
+        //     "externalConsole": true,
+        //     "cwd": "${workspaceFolder}",
+        //     "program": "${workspaceFolder}\\Cap32\\Cap32.exe",
+        //     "args": ["${fileDirname}\\dsk\\${fileDirname}.dsk"]
+        // },
         {
-            "name": "Debug on Caprice32 Windows (ps1)",
-            "type": "cppdbg",
+            "name": "Run PowerShell Test DSK",
+            "type": "PowerShell",
             "request": "launch",
-            "externalConsole": true,
-            "program": "${workspaceFolder}/Cap32/Cap32.exe",
-            "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],
-            "preLaunchTask": "Build Windows PowerShell"
-        },
-        {
-            "name": "Launch on MacOS",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/cap32/",
-            "args": ["${fileDirname}/dsk/${fileDirname}.dsk"],
-            "preLaunchTask": "<nom_de_votre_tâche_macos>"
+            "script": "${workspaceFolder}${/}ps1${/}Test-cpcDSK.ps1",
+            "args": ["${fileDirnameBasename}"]
         }
     ]
 }

@@ -47,6 +47,10 @@ if(![System.IO.Directory]::Exists("$dskFileFolderToCreate/dsk")){
     New-Item -ItemType Directory -Path "$dskFileFolderToCreate/dsk"
 }
 
+# need to test presence of ManageDsk or iDSK
+# switch between
+# if not copy a blank DSK (may be the easy way)
+
 # ------------------------------------------------------------
 # Create the dsk file with ManageDSK
 # ------------------------------------------------------------

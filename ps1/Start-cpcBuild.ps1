@@ -1,15 +1,27 @@
 <#
     .SYNOPSIS
         Start build sequence for Amstrad CPC project.
+    
     .DESCRIPTION
         
     .PARAMETER  <Parameter-Name>
         Current full project directory: %1
+
+    .PARAMETER  <Parameter-Name>
         Current project directory Name: %2
+
+    .PARAMETER  <Parameter-Name>
         Curent folder file:             %3 
+
+    .PARAMETER  <Parameter-Name>
         Curent file:                    %4
+
+    .PARAMETER  <Parameter-Name>
         Curent file with no extention:  %5
+
+    .PARAMETER  <Parameter-Name>
         Curent file extention:          %6
+
 
 #>
 

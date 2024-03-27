@@ -38,14 +38,14 @@ Thanks to him to have develop this.
 
 **CPCReady Basic Language (AMSTRAD)**
 
-Fork from the above.
+Fork from the above.\
 This extension is a port of the one created by dfreniche.
 
 **Amstrad Basic Helper**
 
-Same but add the possibility to run your program.\
-And also renum your code.
-But some **CALL** does not work.\
+Same but add the possibility to run your program. [ctrl]+[shift]+[p]: Amstrad Basic Run\
+And also renum your code. [ctrl]+[shift]+[p]: Amstrad Basic Renum\
+But some **CALL** does not work.
 
 
 **sdk-cpc-amstrad-basic-snippet\
@@ -106,31 +106,30 @@ Your Amstard Basic Projects must look like this:
 ```
 .[VSCodeAmstrad]
 └── 📂 .vscode
-│   └── 📄 extention.json
-│   └── 📄 launch.json
-│   └── 📄 settings.json
-│   └── 📄 tasks.json
+│   └── 📄 extention.json           (this file specify if an extention is needed)
+│   └── 📄 launch.json              (file for debug mode, but can launch script)
+│   └── 📄 settings.json            (settings to tune VSCode for this specific project)
+│   └── 📄 tasks.json               (Tasks to lauch)
 │
-└── 📂 AMSpiriT
+├── 📂 AMSpiriT
 │   └── 📄 AmMSpiriT files          (not include)
-└── 📂 Cap32
+├── 📂 Cap32
 │   └── 📄 Caprice files            (not include)
-└── 📂 CapriceForever
+├── 📂 CapriceForever
 │   └── 📄 Caprice Forever files    (not include)
-└── 📂 ManageDSK
+├── 📂 ManageDSK
 │   └── 📄 ManageDSK files          (not include)
-└── 📂 iDSK
+├── 📂 iDSK
 │   └── 📄 iDSK files               (not include)
 │
-└── 📂 cmd
+├── 📂 cmd
 │   └── 📄 build.cmd                (start by the task)
-│   └── 📄 amspirit.cmd             (launch amspirit)
-│   └── 📄 cap32.cmd                (launch Caprice)
-│   └── 📄 capforever.cmd           (launch Caprice forever)
+│   └── 📄 addFileToDSK.cmd         (add the current file to the dsk)
+│   └── 📄 buildDSK.cmd             (Create standard disk file .dsk)
 │   └── 📄 set.cmd                  (set the env vars)
 │   └── 📄 unset.cmd                (clear env vars)
 │
-└── 📂 sh                           (macOS z shell)
+├── 📂 sh                           (macOS z shell)
 │   └── 📄 build.sh                 (start by the task)
 │   └── 📄 amspirit.sh              (launch amspirit)
 │   └── 📄 capforever.sh            (launch Caprice forever)
@@ -138,16 +137,18 @@ Your Amstard Basic Projects must look like this:
 │   └── 📄 set.sh                   (set the env vars)
 │   └── 📄 unset.sh                 (clear env vars)
 │
-└── 📂 ps1
-│   └── 📄 build.ps1                (start by the task)
-│   └── 📄 capforever.ps1           (launch caprice forever)
-│   └── 📄 cap32.ps1                (launch Caprice)
-│   └── 📄 amspirit.ps1             (launch amspirit)
-│   └── 📄 set.ps1                  (set the env vars)
-│   └── 📄 unset.ps1                (clear env vars)
+├── 📂 ps1
+│   └── 📄 Start-cpcBuild.ps1       (start by the task)
+│   └── 📄 New-cpcDSK.ps1           (Create standard disk file .dsk)
+│   └── 📄 Add-cpcFile2dsk.ps1      (add the current file to the dsk)
+│   └── 📄 Set-cpcVars.ps1          (set the env vars)
+│   └── 📄 Test-cpcDSK.ps1          (launch emulator for test)
+│
+├── 📂 BlankDSK                     (some blank disk)
+│   └── 📄 Amsdos_Blank_Disk.dsk
 │
 └── 📂 Hello
-    └── 📂 dsk
+    ├── 📂 dsk
     │   └── 📄 hello.dsk            (dsk of the project)
     └── 📄 hello.bas
 
