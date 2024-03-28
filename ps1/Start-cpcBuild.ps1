@@ -4,23 +4,23 @@
     
     .DESCRIPTION
         
-    .PARAMETER  <Parameter-Name>
-        Current full project directory: %1
+    .PARAMETER  $CurrentFullProjectDirectory
+        Current full project directory
+
+    .PARAMETER  $CurrentProjectDirectoryName
+        Current project directory Name
+
+    .PARAMETER  $CurentFolderFile
+        Curent folder file
+
+    .PARAMETER  $CurentFile
+        Curent file
+
+    .PARAMETER  $CurentFileNoExtention
+        Curent file with no extention
 
     .PARAMETER  <Parameter-Name>
-        Current project directory Name: %2
-
-    .PARAMETER  <Parameter-Name>
-        Curent folder file:             %3 
-
-    .PARAMETER  <Parameter-Name>
-        Curent file:                    %4
-
-    .PARAMETER  <Parameter-Name>
-        Curent file with no extention:  %5
-
-    .PARAMETER  <Parameter-Name>
-        Curent file extention:          %6
+        $CurentFileExtention
 
 
 #>
@@ -49,13 +49,14 @@ param(
 # Show information
 # ------------------------------------------------------------
 Write-Host
-Write-Host "Start process:                 " $MyInvocation.MyCommand.Name -ForegroundColor green
-Write-Host "Current full project directory: $CurrentFullProjectDirectory"
-Write-Host "Current project directory Name: $CurrentProjectDirectoryName"
-Write-Host "Curent folder file:             $CurentFolderFile"
-Write-Host "Curent file:                    $CurentFile"
-Write-Host "Curent file with no extention:  $CurentFileNoExtention"
-Write-Host "Curent file extention:          $CurentFileExtention"
+Write-Host "Start process:" $MyInvocation.MyCommand.Name -ForegroundColor green
+Write-Host
+Write-Host "    Current full project directory: $CurrentFullProjectDirectory"
+Write-Host "    Current project directory Name: $CurrentProjectDirectoryName"
+Write-Host "    Curent folder file:             $CurentFolderFile"
+Write-Host "    Curent file:                    $CurentFile"
+Write-Host "    Curent file with no extention:  $CurentFileNoExtention"
+Write-Host "    Curent file extention:          $CurentFileExtention"
 
 # ------------------------------------------------------------
 # Set what we need, dot sourced
@@ -81,17 +82,20 @@ function Exit-cpcBuild {
 # ------------------------------------------------------------
 if(![System.IO.File]::Exists("./$CurentFolderFile/dsk/$CurentFolderFile.dsk")){
     Write-Host
-    Write-Host "        The file ./$CurentFolderFile/dsk/$CurentFolderFile.dsk not found" -ForegroundColor red
+    Write-Host "    The file ./$CurentFolderFile/dsk/$CurentFolderFile.dsk not found" -ForegroundColor red
     Write-Host
+    Write-Host "    Try to create it."
     . ./ps1/New-cpcDSK.ps1 $CurentFolderFile $CurentFolderFile
 }
-
 
 # ------------------------------------------------------------
 # if ASM
 # ------------------------------------------------------------
 # to do
-
+if ($CurentFileExtention == ".asm") {
+    Write-Host
+    Write-Host "    ASM file to compile."
+}
 
 
 # ------------------------------------------------------------
@@ -104,6 +108,7 @@ switch($CurentFileExtention)
     ".bas" {$CurentFileExtentionToAdd = $CurentFileExtention; Break}
 }
 
+Write-Host
 Write-Host . ./ps1/Add-cpcFile2DSK.ps1 $CurentFolderFile $CurentFileNoExtention $CurentFileExtentionToAdd
 
 
@@ -115,8 +120,8 @@ Exit-cpcBuild
 # ------------------------------------------------------------
 if (-not $param1 -or -not $param2 -or -not $param3 -or -not $param4 -or -not $param5 -or -not $param6) {
     Write-Host
-    Write-Host "Not all 6 parameters were provided." -ForegroundColor Red
-    Write-Host "Please provide all 6 parameters."
+    Write-Host "    Not all 6 parameters were provided." -ForegroundColor Red
+    Write-Host "    Please provide all 6 parameters."
     # Set exit code to 1 (failure)
     $env:ERRORCODE=1
     # Call the END function
@@ -124,7 +129,7 @@ if (-not $param1 -or -not $param2 -or -not $param3 -or -not $param4 -or -not $pa
 } else {
     # If the script gets here, then all 6 parameters were provided
     Write-Host
-    Write-Host "All 6 parameters were provided."
+    Write-Host "    All 6 parameters were provided."
 }
 
 # -----[EOF]--------------------------------------------------
