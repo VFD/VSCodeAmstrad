@@ -4,13 +4,13 @@
 
     .DESCRIPTION
         CPC Power web site:
-        
+        https://www.cpc-power.com/
 
     .PARAMETER  $dskFileToRename
         DSK file from the current project
 
     .EXAMPLE
-        . ./ps1/Rename-cpcDSK2cpcpower.ps1 $dskFileToRename
+        . ./ps1/Rename-cpcDSK2cpcpower.ps1 ...
 
 
 #>
@@ -33,7 +33,7 @@ $theYear = (Get-Date).Year
 
 
 
-$dskFileNewName = "($theYear).dsk"
+$dskFileNewName = " (F) ($theYear).dsk"
 
 Write-Host Copy-Item -Path "$dskFileToRename" -Destination "$dskFileNewName"
 
